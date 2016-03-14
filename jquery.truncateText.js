@@ -64,9 +64,9 @@
              * @return {array} The split sentences
              */
             findSentenceMatches: function(text) {
-                if (!text.length > 0 || !this.patterns[this.settings.langCode]) return;
+                if (!text.length > 0) return;
 
-                var pattern = this.patterns[this.settings.langCode],
+                var pattern = this.patterns[this.settings.langCode] ? this.patterns[this.settings.langCode] : this.patterns[this._defaults.langCode],
                     splitText = text.match(pattern);
 
                 return splitText;
@@ -82,7 +82,7 @@
                 var visibleText = '',
                     hiddenText = '',
                     markupToInsert = '',
-                    expandLink = '<a class="read-more-link" href="#"><b>'+this.settings.expandLinkText+'</b></a>';
+                    expandLink = '<a class="read-more-link" href="#">'+this.settings.expandLinkText+'</a>';
 
                 if (this.settings.visibleSentences > 1) {
                     for (var i = 0; i < this.settings.visibleSentences; i++) { visibleText += sentences[i] }
@@ -92,7 +92,7 @@
                     for (var o = 1; o < sentences.length; o++) { hiddenText += sentences[o] }
                 }
 
-                visibleText += expandLink;
+                visibleText = visibleText + ' ' + expandLink;
                 hiddenText = '<span class="truncated-full-text hidden">' + hiddenText + '</span>';
                 markupToInsert = visibleText + hiddenText;
                 $(this.element).html(markupToInsert);
