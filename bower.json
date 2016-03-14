@@ -1,0 +1,23 @@
+{
+  "name": "truncateText",
+  "homepage": "https://github.com/toddlawton/truncateText",
+  "authors": [
+    "Todd Beauchamp <toddbee@gmail.com>"
+  ],
+  "description": "jQuery plugin to display a truncated version of an element's text with an expand link",
+  "main": "jquery.truncateText.js",
+  "moduleType": [],
+  "keywords": [
+    "text",
+    "utils"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ]
+}
